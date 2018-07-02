@@ -11,6 +11,10 @@
     left:14px;
     width: 235px;
     height: 52px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+    line-height: 52px;
+    font-size: 25px;
     background: rgb(133, 168, 133);
     box-shadow: inset -2px -2px 7px gray
 }
@@ -40,6 +44,7 @@
     font-family: arial;
     text-align: center;
     line-height: 35px;
+    cursor: default;
 }
 
 .button:hover{
