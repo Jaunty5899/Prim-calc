@@ -2,7 +2,7 @@
     position: absolute;
     width: 263px;
     height: 168px;  
-    background: #C4C4C4;
+    background: rgb(58, 57, 57);
 }
 
 #screen{
@@ -11,7 +11,8 @@
     left:14px;
     width: 235px;
     height: 52px;
-    background: #FFFFFF;
+    background: rgb(133, 168, 133);
+    box-shadow: inset -2px -2px 7px gray
 }
 
 #u-input{
@@ -21,8 +22,9 @@
     border: none;
     width: 235px;
     height: 21px;
-    background: #ECF0F1;
+    background: rgb(133, 168, 133);
     font-family: arial;
+    box-shadow: inset -1px -1px 7px gray
 }
 
 .button{
