@@ -47,7 +47,6 @@ function solve(event) {
       i = 0;
       input.value = "";
       screen.innerHTML = "";
-      break;
     }
   }
   screen.innerHTML = sum;
