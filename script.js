@@ -32,7 +32,7 @@ function solve(event) {
   screen.innerHTML = "";
   console.log(stack);
 
-  for (let i = 0; i < stack.length; i++) {
+  for (let i = 1; i < stack.length; i++) {
     if (id === "add-btn") {
       sum = sum + stack[i];
     } else if (id === "sub-btn") {
