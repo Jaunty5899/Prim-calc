@@ -42,17 +42,13 @@ function solve(event) {
     } else if (id === "div-btn") {
       sum = sum / stack[i];
     } else {
-      reset();
+      sum = 0;
+      stack = [];
+      i = 0;
+      input.value = "";
+      screen.innerHTML = "";
       break;
     }
   }
   screen.innerHTML = sum;
-}
-
-function reset() {
-  sum = 0;
-  stack = []; //this will do thats convenient
-  i = 0;
-  input.value = "";
-  screen.innerHTML = ""; // store this in a var if we are gonna use it again
 }
