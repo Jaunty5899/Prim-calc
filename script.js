@@ -1,5 +1,5 @@
 var stack = [];
-var i = 0;
+var index = 0;
 
 var input = document.getElementById("u-input"); //like this huh?
 var screen = document.getElementById("print");
@@ -19,35 +19,61 @@ input.addEventListener("keyup", function(event) {
 });
 
 function storage() {
-  stack[i] = input.value * 1; //parseInt(input.value)
+  stack[index] = input.value * 1; //parseInt(input.value)
   input.value = "";
-  console.log(stack[i]);
-  i++;
+  console.log(stack[index]);
+  index++;
+}
+
+function reset() {
+  sum = 0;
+  stack = [];
+  index = 0;
+  input.value = "";
 }
 
 function solve(event) {
-  var sum = stack[0];
   let id = event.target.id;
+  var sum = stack[0];
+  console.log({ stack, sum, index });
 
-  screen.innerHTML = "";
-  console.log(stack);
-
-  for (let i = 1; i < stack.length; i++) {
-    if (id === "add-btn") {
-      sum = sum + stack[i];
-    } else if (id === "sub-btn") {
-      sum = sum - stack[i];
-    } else if (id === "mul-btn") {
-      sum = sum * stack[i];
-    } else if (id === "div-btn") {
-      sum = sum / stack[i];
-    } else {
-      sum = 0;
-      stack = [];
-      i = 0;
-      input.value = "";
-      screen.innerHTML = "";
+  const custom_reducer = id => {sa
+    switch (id) {
+      case "add-btn":
+        return (acc, cur) => acc + cur;
+      case "min-btn":
+        return (acc, cur) => acc - cur;
+      case "mul-btn":
+        return (acc, cur) => acc * cur;
+      case "div-btn":
+        return (acc, cur) => acc / cur;
     }
-  }
-  screen.innerHTML = sum;
+
+    stack = [sum];
+    index = 1;
+    console.log(`stack = ${stack}`);
+  };
+
+  id == "reset" ? reset() : (sum = stack.reduce(custom_reducer(id)));
+  // for (let i = 1; i < stack.length; i++) {
+  //   if (id === "add-btn") {
+  //     sum = sum + stack[i];
+  //   } else if (id === "min-btn") {
+  //     sum = sum - stack[i];
+  //   } else if (id === "mul-btn") {
+  //     sum = sum * stack[i];
+  //   } else if (id === "div-btn") {
+  //     sum = sum / stack[i];
+  //   } else {
+  //     sum = 0;
+  //     stack = [];
+  //     index = 0;
+  //     input.value = "";
+  //     screen.innerHTML = "";
+  //     break;
+  //   }
+  // }
+  stack = [sum];
+  console.log({ stack, sum, index });
+  id != "reset" ? (screen.innerHTML = sum) : (screen.innerHTML = 0); //change 1
 }
